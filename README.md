@@ -1,10 +1,7 @@
-# :package_name
-
-[![Latest Version on Packagist][ico-version]][link-packagist]
-[![Software License][ico-license]](LICENSE.md)
-[![Total Downloads][ico-downloads]][link-downloads]
-
 # SimpleNonce
+
+[![Software License][ico-license]](LICENSE.md)
+
 A simple Nonce implementation in PHP
 
 This is a very simple nonce implementation.  Uses PSR-2 and PSR-4
@@ -14,7 +11,6 @@ This is a very simple nonce implementation.  Uses PSR-2 and PSR-4
 If any of the following are applicable to your project, then the directory structure should follow industry best practices by being named the following.
 
 ```       
-config/
 src/
 tests/
 vendor/
@@ -74,7 +70,7 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) and [CODE_OF_CONDUCT](CODE_OF_CONDUCT
 
 ## Credits
 
-- [:author_name][link-author]
+- [John McMurray][link-author]
 - [All Contributors][link-contributors]
 
 ## License
@@ -89,9 +85,9 @@ GNU GENERAL PUBLIC LICENSE. Please see [License File](LICENSE.md) for more infor
 [link-contributors]: ../../contributors
 
 
-Questions:
+## Questions
 
-Q: Why do we need to pass the timestamp?
+[Q: Why do we need to pass the timestamp?]
 
 A: The way most nonces are implemented is that when they are created the nonce and the time out is stored in a file system or in a db, redis, etc. When the nonce is used the validity of the nonce and its time out is read from a DB. 
 
