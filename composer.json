@@ -3,7 +3,7 @@
     "description": "Simple nonce implementation",
     "keywords": ["nonce", "security"],
     "homepage": "https://softsmart.co.za/2017/01/04/php-create-installer-composer/",
-    "license": "gpl3",
+    "license": "GPL-3.0-only",
     "authors": [
         {
             "name": "John McMurray",

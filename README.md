@@ -87,7 +87,7 @@ GNU GENERAL PUBLIC LICENSE. Please see [License File](LICENSE.md) for more infor
 
 ## Questions
 
-[Q: Why do we need to pass the timestamp?]
+Q: Why do we need to pass the timestamp?
 
 A: The way most nonces are implemented is that when they are created the nonce and the time out is stored in a file system or in a db, redis, etc. When the nonce is used the validity of the nonce and its time out is read from a DB. 
 
