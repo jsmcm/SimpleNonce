@@ -1,18 +1,18 @@
 <?php
 
-include(__DIR__."/../../class.SimpleNonce.php");
+include(__DIR__."/../../src/SimpleNonce.php");
 
-$oSimpleNonce = new SimpleNonce();
+$oSimpleNonce = new \SoftSmart\Utilities\SimpleNonce();
 
-$UserID = 1; // This is the user account we're about to delete
+$userID = 1; // This is the user account we're about to delete
 
-$Action = "deleteUser";
-$Meta = [$UserID];
+$action = "deleteUser";
+$meta = [$userID];
 
-$NonceValues = $oSimpleNonce->GenerateNonce($Action, $Meta);
+$nonceValues = $oSimpleNonce->generateNonce($action, $meta);
 ?>
 <html>
 <body>
-Click here to <a href="deleteUser.php?Nonce=<?php print $NonceValues["Nonce"]; ?>&TimeStamp=<?php print $NonceValues["TimeStamp"]; ?>&UserID=<?php print $UserID; ?>">Delete user</a>
+Click here to <a href="deleteUser.php?nonce=<?php print $nonceValues["nonce"]; ?>&timeStamp=<?php print $nonceValues["timeStamp"]; ?>&userID=<?php print $userID; ?>">Delete user</a>
 </body>
 </html>

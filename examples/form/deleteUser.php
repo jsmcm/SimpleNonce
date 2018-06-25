@@ -1,18 +1,17 @@
 <?php
 
-include(__DIR__."/../../class.SimpleNonce.php");
+include(__DIR__."/../../src/SimpleNonce.php");
 
-$oSimpleNonce = new SimpleNonce();
+$oSimpleNonce = new \SoftSmart\Utilities\SimpleNonce();
 
-$Nonce = filter_var($_POST["Nonce"], FILTER_SANITIZE_STRING);
-$TimeStamp = filter_var($_POST["TimeStamp"], FILTER_SANITIZE_STRING);
-$UserID = intVal($_POST["UserID"]);
+$nonce = filter_var($_POST["nonce"], FILTER_SANITIZE_STRING);
+$timeStamp = filter_var($_POST["timeStamp"], FILTER_SANITIZE_STRING);
+$userID = intVal($_POST["userID"]);
 
-$Action = "deleteUser";
-$Meta = [$UserID];
+$action = "deleteUser";
+$meta = [$userID];
 
-if( ! $oSimpleNonce->VerifyNonce($Nonce, $Action, $TimeStamp, $Meta) )
-{
+if (! $oSimpleNonce->verifyNonce($nonce, $action, $timeStamp, $meta)) {
     print "Nonce failed!";
     exit();
 }

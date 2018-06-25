@@ -1,0 +1,28 @@
+{
+    "name": "softsmart/simple-nonce",
+    "description": "Simple nonce implementation",
+    "keywords": ["nonce", "security"],
+    "homepage": "https://softsmart.co.za/2017/01/04/php-create-installer-composer/",
+    "license": "gpl3",
+    "authors": [
+        {
+            "name": "John McMurray",
+            "homepage": "https://softsmart.co.za",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "email": "support@softsmart.co.za"
+    },
+    "require": {
+        "php": ">=5.4.0"
+    },   
+    "require-dev": {
+        "phpunit/phpunit": "^6.5"
+    },
+    "autoload": {
+	"psr-4": {
+	    "SoftSmart\\Utilities\\": "src/"
+	}
+    }
+}
