@@ -2,7 +2,7 @@
 
 [![Software License][ico-license]](LICENSE.md)
 
-A simple Nonce implementation in PHP
+A simple nonce implementation in PHP
 
 This is a very simple nonce implementation.  Uses PSR-2 and PSR-4
 
