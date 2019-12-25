@@ -39,7 +39,7 @@ class SimpleNonce
     */
     function __construct() 
     {
-        include_once dirname(__FILE__)."/config.inc.php";
+        include dirname(__FILE__)."/config.inc.php";
     
         if (isset($config["salt"])) {
             $this->nonceSalt = $config["salt"];
