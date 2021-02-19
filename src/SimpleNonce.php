@@ -37,21 +37,27 @@ class SimpleNonce
     * Constructor. Set's the tmp directory and calls the protected
     * function manageNonceTempFiles which deletes stale tmp files
     */
-    function __construct() 
+    function __construct($runtime_config = []) 
     {
         include dirname(__FILE__)."/config.inc.php";
     
-        if (isset($config["salt"])) {
+    	if (isset($runtime_config["salt"])) {
+    		$this->nonceSalt = $runtime_config["salt"];
+        } else if (isset($config["salt"])) {
             $this->nonceSalt = $config["salt"];
         }
     
-        if (isset($config["ttl"])) {
+    	if (isset($runtime_config["ttl"])) {
+    		$this->nonceExpiryTime = $runtime_config["ttl"];
+        } else if (isset($config["ttl"])) {
             $this->nonceExpiryTime = $config["ttl"];
         }
     
         // where will the nonce files be saved
         $this->path = dirname(__FILE__)."/nonce"; 
-        if (isset($config["tmpPath"])) {
+        if (isset($runtime_config["tmpPath"])) {
+        	$this->path = $runtime_config["tmpPath"];
+        } else if (isset($config["tmpPath"])) {
             $this->path = $config["tmpPath"];
         }
     

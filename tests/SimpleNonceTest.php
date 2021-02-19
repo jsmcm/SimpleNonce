@@ -68,4 +68,17 @@ class SimpleNonceTest extends \PHPUnit\Framework\TestCase
     }
 
 
+    public function testNonceAcceptsRuntimeConfig()
+    {
+    	$oSimpleNonce = new \SoftSmart\Utilities\SimpleNonce(["salt"=>"your-salt", "ttl"=>3600]);
+
+    $action = "test";
+	$meta = ["testNonceAcceptsRuntimeConfig"];
+	
+	$result = $oSimpleNonce->generateNonce($action, $meta);
+	
+	$this->assertNotEmpty($result);
+    }
+
+
 }
