@@ -29,22 +29,26 @@ $ composer require softsmart/simple-nonce
 
 ``` php
 // Generate Nonce
-$userID = 1; // This is the user account we're about to delete
+$UserID = 1; // This is the user account we're about to delete
 
 $action = "deleteUser";
 $meta = [$UserID];
 
-$nonceValues = SimpleNonce::GenerateNonce($action, $meta);
+// Optionally set configuration at runtime, else use config.inc.php
+$nonceConfig = ["salt"=>"your-salt", "ttl"=>3600];
+$nonceEngine = new \SoftSmart\Utilities\SimpleNonce($nonceConfig);
+
+$nonceValues = $nonceEngine->generateNonce($action, $meta);
 header("Location: ./deleteUser.php?userID=".$userID."&nonce=".$nonceValues["nonce"]."&timeStamp=".$nonceValues["timeStamp"]);
 
 
 // Verify Nonce
-$userID = 1; // This is the user account we're about to delete
+$UserID = 1; // This is the user account we're about to delete
 
 $action = "deleteUser";
 $meta = [$UserID];
 
-$result = SimpleNonce::VerifyNonce($nonceValues["nonce"], $action, $nonceValues["timeStamp"], $meta);
+$result = SimpleNonce::verifyNonce($nonceValues["nonce"], $action, $nonceValues["timeStamp"], $meta);
 
 if( ! $Result )
 {
